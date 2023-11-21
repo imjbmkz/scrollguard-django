@@ -1,0 +1,227 @@
+[{
+  "_id": {
+    "$oid": "65328dfe35e34bb5451e5787"
+  },
+  "type": "sources",
+  "value": {
+    "eu": {
+      "url": "https://webgate.ec.europa.eu/fsd/fsf/public/files/csvFullSanctionsList_1_1/content?token=dG9rZW4tMjAxNw",
+      "params": {
+        "delimiter": ";"
+      },
+      "source_file": "csv",
+      "id": "Entity_LogicalId",
+      "sanction_name": "NameAlias_WholeName",
+      "sanction_alias": {
+        "$numberDouble": "NaN"
+      }
+    },
+    "hm": {
+      "url": "https://ofsistorage.blob.core.windows.net/publishlive/2022format/ConList.csv",
+      "params": {
+        "skiprows": 1
+      },
+      "source_file": "csv",
+      "id": "Group ID",
+      "sanction_name": [
+        "Name 1",
+        "Name 2",
+        "Name 3",
+        "Name 4",
+        "Name 5",
+        "Name 6"
+      ],
+      "sanction_alias": {
+        "$numberDouble": "NaN"
+      }
+    },
+    "ofac_nsdn": {
+      "url": [
+        "https://www.treasury.gov/ofac/downloads/consolidated/cons_prim.csv",
+        "https://www.treasury.gov/ofac/downloads/consolidated/cons_alt.csv",
+        "https://www.treasury.gov/ofac/downloads/consolidated/cons_add.csv"
+      ],
+      "params": [
+        {
+          "na_values": "-0- ",
+          "engine": "python",
+          "skipfooter": 1,
+          "names": [
+            "ent_num",
+            "sdn_name",
+            "sdn_type",
+            "program",
+            "title",
+            "call_sign",
+            "vess_type",
+            "tonnage",
+            "grt",
+            "vess_flag",
+            "vess_owner",
+            "remarks"
+          ]
+        },
+        {
+          "na_values": "-0- ",
+          "engine": "python",
+          "skipfooter": 1,
+          "names": [
+            "ent_num",
+            "alt_num",
+            "alt_type",
+            "alt_name",
+            "alt_remarks"
+          ]
+        },
+        {
+          "na_values": "-0- ",
+          "engine": "python",
+          "skipfooter": 1,
+          "names": [
+            "ent_num",
+            "add_num",
+            "address",
+            "city_state_province_postalcode",
+            "country",
+            "address_remarks"
+          ]
+        }
+      ],
+      "join_key": "ent_num",
+      "source_file": "csv",
+      "id": "ent_num",
+      "sanction_name": "sdn_name",
+      "sanction_alias": "alt_name"
+    },
+    "ofac_sdn": {
+      "url": [
+        "https://www.treasury.gov/ofac/downloads/sdn.csv",
+        "https://www.treasury.gov/ofac/downloads/alt.csv",
+        "https://www.treasury.gov/ofac/downloads/add.csv"
+      ],
+      "params": [
+        {
+          "na_values": "-0- ",
+          "engine": "python",
+          "skipfooter": 1,
+          "names": [
+            "ent_num",
+            "sdn_name",
+            "sdn_type",
+            "program",
+            "title",
+            "call_sign",
+            "vess_type",
+            "tonnage",
+            "grt",
+            "vess_flag",
+            "vess_owner",
+            "remarks"
+          ]
+        },
+        {
+          "na_values": "-0- ",
+          "engine": "python",
+          "skipfooter": 1,
+          "names": [
+            "ent_num",
+            "alt_num",
+            "alt_type",
+            "alt_name",
+            "alt_remarks"
+          ]
+        },
+        {
+          "na_values": "-0- ",
+          "engine": "python",
+          "skipfooter": 1,
+          "names": [
+            "ent_num",
+            "add_num",
+            "address",
+            "city_state_province_postalcode",
+            "country",
+            "address_remarks"
+          ]
+        }
+      ],
+      "join_key": "ent_num",
+      "source_file": "csv",
+      "id": "ent_num",
+      "sanction_name": "sdn_name",
+      "sanction_alias": "alt_name"
+    },
+    "un_entity": {
+      "url": "https://scsanctions.un.org/resources/xml/en/consolidated.xml",
+      "xpath": [
+        "CONSOLIDATED_LIST",
+        "ENTITIES",
+        "ENTITY"
+      ],
+      "source_file": "xml",
+      "id": "DATAID",
+      "sanction_name": "FIRST_NAME",
+      "sanction_alias": {
+        "ENTITY_ALIAS": "ALIAS_NAME"
+      }
+    },
+    "un_individual": {
+      "url": "https://scsanctions.un.org/resources/xml/en/consolidated.xml",
+      "xpath": [
+        "CONSOLIDATED_LIST",
+        "INDIVIDUALS",
+        "INDIVIDUAL"
+      ],
+      "source_file": "xml",
+      "id": "DATAID",
+      "sanction_name": [
+        "FIRST_NAME",
+        "SECOND_NAME",
+        "THIRD_NAME",
+        "FOURTH_NAME"
+      ],
+      "sanction_alias": {
+        "INDIVIDUAL_ALIAS": "ALIAS_NAME"
+      }
+    }
+  }
+},
+{
+  "_id": {
+    "$oid": "653405e24fde486e0c750461"
+  },
+  "type": "elt_log",
+  "last_refreshed_date": {
+    "hm": {
+      "$date": "2023-11-06T15:02:05.412Z"
+    },
+    "eu": {
+      "$date": "2023-11-06T15:05:06.279Z"
+    },
+    "ofac_sdn": {
+      "$date": "2023-11-06T15:00:47.607Z"
+    },
+    "ofac_nsdn": {
+      "$date": "2023-11-06T15:00:39.135Z"
+    },
+    "un_individual": {
+      "$date": "2023-11-06T15:00:14.668Z"
+    },
+    "un_entity": {
+      "$date": "2023-11-06T15:40:26.544Z"
+    },
+    "all": {
+      "$date": "2023-11-06T15:05:06.903Z"
+    }
+  }
+},
+{
+  "_id": {
+    "$oid": "653fa5d69ecf80a0970b6740"
+  },
+  "type": "screening",
+  "value": {
+    "name_length": 3,
+    "screening_ratio": 0.85
+  }
+}]

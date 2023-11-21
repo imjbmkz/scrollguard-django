@@ -1,0 +1,13 @@
+ipykernel
+python-dotenv
+loguru
+requests
+beautifulsoup4
+xmltodict
+pandas
+pymongo
+jellyfish
+levenshtein
+prefect
+django
+djangorestframework
